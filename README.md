@@ -15,7 +15,7 @@ Custom version of **WordPress Related Posts Plugin** form Denis [WordPress Relat
 * Fix how the plugin gets the thumb.
 * If the post doesn't have thumbnail define, gets an image from the post and shows it.
 
-### 1.2 ###  
+### 1.2 ###
 * Compatible with WordPress 3.0
 
 ###  1.1 ###
