@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: WordPress Related Posts
-Version: 1.2
-Plugin URI: http://fairyfish.net/2007/09/12/wordpress-23-related-posts-plugin/
+Version: 1.3
+Plugin URI: https://github.com/ikcam/wp-related-posts
 Description: Generate a related posts list via tags of WordPress
-Author: Denis
-Author URI: http://fairyfish.net/
+Author: iKcam
+Author URI: http://ikcam.com/
 */
 
 add_action('init', 'init_textdomain');
