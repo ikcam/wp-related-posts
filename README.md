@@ -1,6 +1,6 @@
 # WordPress Related Posts Plugin #
 
-Custom version of *WordPress Related Posts Plugin* form Denis [WordPress Related Posts Plugins](http://wordpress.org/extend/plugins/wordpress-23-related-posts-plugin/)
+Custom version of **WordPress Related Posts Plugin** form Denis [WordPress Related Posts Plugins](http://wordpress.org/extend/plugins/wordpress-23-related-posts-plugin/)
 
 ## Changelog ##
 
