@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: WordPress Related Posts
-Version: 1.3
+Version: 1.4
 Plugin URI: https://github.com/ikcam/wp-related-posts
 Description: Generate a related posts list via tags of WordPress
 Author: iKcam

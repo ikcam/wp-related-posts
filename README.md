@@ -11,6 +11,9 @@ Custom version of **WordPress Related Posts Plugin** form Denis [WordPress Relat
 
 ## Changelog ##
 
+### 1.4 ###
+* You can set your thumbnail size at the admin panel
+
 ### 1.3 ###
 * Fix how the plugin gets the thumb.
 * If the post doesn't have thumbnail define, gets an image from the post and shows it.
