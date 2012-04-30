@@ -86,7 +86,7 @@ function wp_get_related_posts($before_title="",$after_title="") {
 		$output .= '<li>';
 		
 		if ($wp_rp["wp_rp_thumbnail"]){
-			$article_thumbnail = wp_get_attachment_image_src ( get_post_thumbnail_id ( $related_post->ID ), array(150,150));
+			$article_thumbnail = wp_get_attachment_image_src ( get_post_thumbnail_id ( $related_post->ID ), array( $wp_rp["wp_rp_thumbnail_width"],$wp_rp["wp_rp_thumbnail_height"]) );
 			if( empty( $article_thumbnail ) ) {
 				$attachments = get_children( array(
 						'post_parent'    => get_post_thumbnail_id ( $related_post->ID ),
@@ -99,7 +99,7 @@ function wp_get_related_posts($before_title="",$after_title="") {
 					) 
 				);
 				foreach ( $attachments as $attachment_id => $attachment ) {
-					$article_thumbnail = wp_get_attachment_image_src( $attachment_id, array(150,150));
+					$article_thumbnail = wp_get_attachment_image_src( $attachment_id, array($wp_rp["wp_rp_thumbnail_width"],$wp_rp["wp_rp_thumbnail_height"]) );
 				}
 			}
 			$output .=  '<a href="'.get_permalink($related_post->ID).'" title="'.wptexturize($related_post->post_title).'"><img src="'.$article_thumbnail[0].'" width="'.$article_thumbnail[1].'" height="'.$article_thumbnail[2].'" alt="'.wptexturize($related_post->post_title).'" /></a>';
@@ -276,7 +276,9 @@ function wp_related_posts_options_subpanel() {
 			'wp_rp_date'			=> trim($_POST['wp_rp_date_option']),
 			'wp_rp_thumbnail'		=> trim($_POST['wp_rp_thumbnail_option']),
 			'wp_rp_thumbnail_text'	=> trim($_POST['wp_rp_thumbnail_text_option']),
-			'wp_rp_thumbnail_post_meta'	=> trim($_POST['wp_rp_thumbnail_post_meta_option'])
+			'wp_rp_thumbnail_post_meta'	=> trim($_POST['wp_rp_thumbnail_post_meta_option']),
+			'wp_rp_thumbnail_width' => trim($_POST['wp_rp_thumbnail_width']),
+			'wp_rp_thumbnail_height' => trim($_POST['wp_rp_thumbnail_height'])
 		);
 		
 		if ($wp_rp_saved != $wp_rp)
@@ -343,12 +345,6 @@ function wp_related_posts_options_subpanel() {
 		</script>
 		
 		<h2><?php _e("Related Posts Settings",'wp_related_posts');?></h2>
-		<p><?php _e("<a href=\"http://fairyfish.net/2007/09/12/wordpress-23-related-posts-plugin/\">WordPress Related Posts </a>Plugin can generate a related posts list via WordPress tags, and add the related posts to feed.",'wp_related_posts');?> </p> 
-		<?php _e("Any problem or need help, please contact ",'wp_related_posts');?><a href="mailto:denishua@hotmail.com">denishua</a>.</p>
-		
-		<div>
-		<span style="font-size:16px; height:30px; line-height:30px; padding:0 10px;"> <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8490579"><?php _e("Do you like this Plugin? Consider to donate!",'wp_related_posts');?></a></span> <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8490579"><img src="https://www.paypal.com/en_GB/i/btn/btn_donate_LG.gif" align="left" /></a>
-		</div>
 		
         <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>?page=<?php echo basename(__FILE__); ?>">
 		<h3><?php _e("Basic Setting",'wp_related_posts');?></h3>
@@ -494,6 +490,9 @@ function wp_related_posts_options_subpanel() {
 				}
 				?>
 				</select>
+				<br />
+				<?php _e("Thumbnail Width: ",'wp_related_posts');?><input type="number" min="0" size="3" id="wp_rp_thumbnail_width" name="wp_rp_thumbnail_width" value="<?php echo $wp_rp["wp_rp_thumbnail_width"]; ?>" /><br />
+				<?php _e("Thumbnail Height: ",'wp_related_posts');?><input type="number" min="0" size="3" id="wp_rp_thumbnail_height" name="wp_rp_thumbnail_height" value="<?php echo $wp_rp["wp_rp_thumbnail_height"]; ?>" />
 				</span>
             </td>
           </tr>
