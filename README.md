@@ -11,8 +11,11 @@ Custom version of **WordPress Related Posts Plugin** form Denis [WordPress Relat
 
 ## Changelog ##
 
+### 1.4.1 ###
+* Remove shortcodes from the post exceprt or post content.
+
 ### 1.4 ###
-* You can set your thumbnail size at the admin panel
+* You can set your thumbnail size at the admin panel.
 
 ### 1.3 ###
 * Fix how the plugin gets the thumb.

@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: WordPress Related Posts
-Version: 1.4
+Version: 1.4.1
 Plugin URI: https://github.com/ikcam/wp-related-posts
 Description: Generate a related posts list via tags of WordPress
 Author: iKcam
@@ -122,9 +122,15 @@ function wp_get_related_posts($before_title="",$after_title="") {
 				$wp_rp_except_number = trim($wp_rp["wp_rp_except_number"]);
 				if(!$wp_rp_except_number) $wp_rp_except_number = 200;
 				if($related_post->post_excerpt){
-					$output .= '<br /><small>'.(mb_substr(strip_tags($related_post->post_excerpt),0,$wp_rp_except_number)).'...</small>';
+					$excerpt_text = strip_tags($related_post->post_excerpt);
+					$excerpt_text = preg_replace( '|\[(.+?)\](.+?\[/\\1\])?|s', '', $excerpt_text);
+					$excerpt_text = mb_substr($excerpt_text,0,$wp_rp_except_number);
+					$output .= '<br /><small>'.$excerpt_text.'...</small>';
 				}else{
-					$output .= '<br /><small>'.(mb_substr(strip_tags($related_post->post_content),0,$wp_rp_except_number)).'...</small>';
+					$excerpt_text = strip_tags($related_post->post_content);
+					$excerpt_text = preg_replace( '|\[(.+?)\](.+?\[/\\1\])?|s', '', $excerpt_text);
+					$excerpt_text = mb_substr($excerpt_text,0,$wp_rp_except_number);
+					$output .= '<br /><small>'.$excerpt_text.'...</small>';
 				}
 			}	
 		}
