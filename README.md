@@ -11,6 +11,9 @@ Custom version of **WordPress Related Posts Plugin** form Denis [WordPress Relat
 
 ## Changelog ##
 
+### 1.4.2 ###
+* Remove automatic on single. Mantain related posts on feed.
+
 ### 1.4.1 ###
 * Remove shortcodes from the post exceprt or post content.
 

@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: WordPress Related Posts
-Version: 1.4.1
+Version: 1.4.2
 Plugin URI: https://github.com/ikcam/wp-related-posts
 Description: Generate a related posts list via tags of WordPress
 Author: iKcam
@@ -163,7 +163,7 @@ function wp23_related_posts() {
 
 function wp_related_posts_auto($content){
 	$wp_rp = get_option("wp_rp");
-	if ((is_single() && $wp_rp["wp_rp_auto"])||(is_feed() && $wp_rp["wp_rp_rss"])) {
+	if (is_feed() && $wp_rp["wp_rp_rss"]) {
 		$output = wp_get_related_posts();
 		$content = $content . $output;
 	}
@@ -172,6 +172,7 @@ function wp_related_posts_auto($content){
 }
 
 add_filter('the_content', 'wp_related_posts_auto',99);
+
 
 function wp_get_random_posts ($limitclause="") {
     global $wpdb, $post;
