@@ -112,7 +112,7 @@ function wp_get_related_posts($before_title="",$after_title="") {
 				$output .= mysql2date($dateformat, $related_post->post_date) . " -- ";
 			}
 			
-			$output .=  '<h2><a href="'.get_permalink($related_post->ID).'" title="'.wptexturize($related_post->post_title).'">'.wptexturize($related_post->post_title).'</a></h2>';
+			$output .=  '<div><h2><a href="'.get_permalink($related_post->ID).'" title="'.wptexturize($related_post->post_title).'">'.wptexturize($related_post->post_title).'</a></h2>';
 			
 			if ($wp_rp["wp_rp_comments"]){
 				$output .=  " (" . $related_post->comment_count . ")";
@@ -125,12 +125,12 @@ function wp_get_related_posts($before_title="",$after_title="") {
 					$excerpt_text = strip_tags($related_post->post_excerpt);
 					$excerpt_text = preg_replace( '|\[(.+?)\](.+?\[/\\1\])?|s', '', $excerpt_text);
 					$excerpt_text = mb_substr($excerpt_text,0,$wp_rp_except_number);
-					$output .= '<br /><small>'.$excerpt_text.'...</small>';
+					$output .= '<small>'.$excerpt_text.'...</small></div>';
 				}else{
 					$excerpt_text = strip_tags($related_post->post_content);
 					$excerpt_text = preg_replace( '|\[(.+?)\](.+?\[/\\1\])?|s', '', $excerpt_text);
 					$excerpt_text = mb_substr($excerpt_text,0,$wp_rp_except_number);
-					$output .= '<br /><small>'.$excerpt_text.'...</small>';
+					$output .= '<small>'.$excerpt_text.'...</small></div>';
 				}
 			}	
 		}
